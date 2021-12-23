@@ -8,6 +8,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [registeredUsers] = useLocalStorage("users", []);
+  const [isLoggedIn,setIsLoggedIn] = useLocalStorage("isLoggedIn", false);
   console.log(registeredUsers);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const SignIn = () => {
           "top-right",
           2000
         );
+        setIsLoggedIn(true)
         router.push("movies");
       } else {
         Alerts(
