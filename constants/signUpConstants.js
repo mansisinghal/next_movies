@@ -1,7 +1,7 @@
 const getVariableTypes = [
-    { label: "Text", value: "text" },
-    { label: "Number", value: "number" },
-    { label: "Date", value: "date" },
+    { label: "Reactjs developer", value: "text" },
+    { label: "Full Stack developer", value: "number" },
+    { label: "Backend developer", value: "date" },
   ];
 
   export{

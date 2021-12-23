@@ -7,8 +7,20 @@ import {useEffect} from "react"
 export default function Home() {
   
   return (
-    <div className={styles.container}>
-      <p>Taking you back to signup.......</p>
+    <div className={styles.center}>
+      <h1>
+        <center>Welcome To</center>
+        </h1>
+        <h2>
+          <center>
+     <span>G</span>eeksynergy
+     <span>T</span>echnologies
+     <span>P</span>vt
+     <span>L</span>td
+     </center>
+     
+     </h2>
     </div>
+    
   )
 }

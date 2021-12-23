@@ -13,19 +13,19 @@ const Layout = (props) => {
   return (
     <LayoutSection>
       <Head>
-        <title>Movies</title>
+        <title>Geeksynergy Technologies Pvt Ltd</title>
       </Head>
       <Navbar bg="dark" variant="dark" fixed="top" sticky="top">
         <Container>
           <Link href="/" passHref>
-            <Navbar.Brand>Movies</Navbar.Brand>
+            <Navbar.Brand>Geeksynergy Technologies Pvt Ltd</Navbar.Brand>
           </Link>
           <Nav >
             <Link href="/" passHref>
               <Nav.Link>Home</Nav.Link>
             </Link>
             <Link href="/about" passHref>
-              <Nav.Link>About</Nav.Link>
+              <Nav.Link>Company Information</Nav.Link>
             </Link>
             <Link href="/signup" passHref>
               <Nav.Link>Sign Up</Nav.Link>
