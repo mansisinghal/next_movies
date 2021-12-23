@@ -24,6 +24,9 @@ const Layout = (props) => {
             <Link href="/" passHref>
               <Nav.Link>Home</Nav.Link>
             </Link>
+            <Link href="/about" passHref>
+              <Nav.Link>About</Nav.Link>
+            </Link>
             <Link href="/signup" passHref>
               <Nav.Link>Sign Up</Nav.Link>
             </Link>

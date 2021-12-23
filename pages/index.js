@@ -5,9 +5,7 @@ import router from "next/router"
 import {useEffect} from "react"
 
 export default function Home() {
-  useEffect(() => {
-    router.push('/signup')
-  }, [])
+  
   return (
     <div className={styles.container}>
       <p>Taking you back to signup.......</p>
