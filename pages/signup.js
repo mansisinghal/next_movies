@@ -3,6 +3,7 @@ import { TextField, MenuItem } from "@mui/material";
 import { getVariableTypes } from "../constants/signUpConstants";
 import { useLocalStorage } from "react-use";
 import router from "next/router";
+import Alerts from "../components/Alerts";
 
 export default function Signup() {
   // States for registration
@@ -13,39 +14,11 @@ export default function Signup() {
   const [profession, setProfession] = useState("");
   const [registeredUsers, setRegisteredUsers] = useLocalStorage("users", []);
 
-  // States for checking the errors
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
-
-  // Handling the name change
-  const handleName = (e) => {
-    setName(e.target.value);
-    setSubmitted(false);
-  };
-
-  // Handling the email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setSubmitted(false);
-  };
-
-  // Handling the email change
-  const handlePhoneNo = (e) => {
-    setPhoneNo(e.target.value);
-    setSubmitted(false);
-  };
-
-  // Handling the password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setSubmitted(false);
-  };
-
   // Handling the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name === "" || email === "" || password === "") {
-      setError(true);
+      Alerts("Error", `Please fill all details!`, "danger", "top-right", 2000);
     } else if (registeredUsers.length > 0) {
       let count = 0;
       registeredUsers.map((r) => {
@@ -54,7 +27,14 @@ export default function Signup() {
         }
       });
       if (count) {
-        setError(true);
+        Alerts(
+          "Error",
+          `User already exists, Please Login to continue.`,
+          "danger",
+          "top-right",
+          2000
+        );
+        return;
       } else {
         let arr = {
           email: email,
@@ -65,7 +45,13 @@ export default function Signup() {
         };
         setRegisteredUsers([...registeredUsers, arr]);
       }
-      setSubmitted(true);
+      Alerts(
+        "Success",
+        `User Registered Successfully`,
+        "success",
+        "top-right",
+        2000
+      );
       router.push("signin");
     } else {
       let arr = [
@@ -78,39 +64,18 @@ export default function Signup() {
         },
       ];
       setRegisteredUsers(arr);
-      setSubmitted(true);
+      Alerts(
+        "Success",
+        `User Registered Successfully`,
+        "success",
+        "top-right",
+        2000
+      );
       router.push("signin");
-      setError(false);
     }
   };
 
   // Showing success message
-  const successMessage = () => {
-    return (
-      <div
-        className="success"
-        style={{
-          display: submitted ? "" : "none",
-        }}
-      >
-        <h1>User {name} successfully registered!!</h1>
-      </div>
-    );
-  };
-
-  // Showing error message if error is true
-  const errorMessage = () => {
-    return (
-      <div
-        className="error"
-        style={{
-          display: error ? "" : "none",
-        }}
-      >
-        <h1>Please enter all the fields</h1>
-      </div>
-    );
-  };
 
   return (
     <div className="form">
@@ -118,11 +83,6 @@ export default function Signup() {
         <h1>User Registration</h1>
       </div>
 
-      {/* Calling to the methods */}
-      <div className="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div>
       <center>
         <div style={{ width: "50%" }}>
           <form>
@@ -219,7 +179,7 @@ export default function Signup() {
               ))}
             </TextField>
             <button onClick={handleSubmit} className="btn" type="submit">
-              Submit
+              Register
             </button>
           </form>
         </div>

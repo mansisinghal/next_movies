@@ -8,7 +8,6 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [registeredUsers] = useLocalStorage("users", []);
-  console.log(registeredUsers);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
@@ -53,45 +52,10 @@ const SignIn = () => {
   return (
     <div className="form">
       <div>
-        <h1>User Login</h1>
+        <h1>Movies</h1>
       </div>
 
-      <center>
-        <div style={{ width: "50%" }}>
-          <form>
-            {" "}
-            <TextField
-              autoFocus
-              margin="dense"
-              id="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              label="Email"
-              type="email"
-              fullWidth
-              required
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              label="Password"
-              type="password"
-              fullWidth
-              required
-            />{" "}
-            <button onClick={handleSubmit} className="btn" type="submit">
-              Login
-            </button>
-          </form>
-        </div>
-      </center>
+      <p>Movies toh daal lo yaar</p>
     </div>
   );
 };
